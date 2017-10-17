@@ -11,18 +11,20 @@
 		  "url": "{{ .Site.BaseURL }}",
 		  "author": {
 		    "@type": "Organization",
-		    "name": "Stryke Force",
+		    "name": "{{ .Site.Params.Name }}",
+				"logo": "{{ .Site.BaseURL }}{{ .Site.Params.ProfilePicture }}",
 				"address": {
 			    "@type": "PostalAddress",
 			    "addressLocality": "Kalamazoo",
-			    "addressRegion": "MI"
+			    "addressRegion": "MI",
+					"addressCountry": "USA"
 			  }
 		  },
-		  "description": "Stryke Force Team 2767 Development Blog",
-		  "image": "https://strykeforce.github.io/strykeforce.jpg",
-		  "thumbnailUrl": "https://strykeforce.github.io/strykeforce.jpg",
+		  "description": "{{ .Site.Params.About }}",
+		  "image": "{{ .Site.BaseURL }}{{ .Site.Params.ProfilePicture }}",
+		  "thumbnailUrl": "{{ .Site.BaseURL }}{{ .Site.Params.ProfilePicture }}",
 		  "license": "https://creativecommons.org/licenses/by-sa/4.0/",
-		  "name": "Stryke Force 2767"
+		  "name": "{{ .Site.Params.Name }}"
 		}
 		</script>
 	</head>
