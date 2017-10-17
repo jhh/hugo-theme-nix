@@ -4,7 +4,28 @@
 		<title> {{ .Site.Title }} </title>
 
 		{{ partial "head.html" . }}
+		<script type="application/ld+json">
+		{
+		  "@context": "http://schema.org",
+		  "@type": "WebSite",
+		  "url": "{{ .Site.BaseURL }}",
 
+		  "author": {
+		    "@type": "Organization",
+		    "name": "Stryke Force",
+				"address": {
+			    "@type": "PostalAddress",
+			    "addressLocality": "Kalamazoo",
+			    "addressRegion": "MI"
+			  },
+		  },
+		  "description": "Stryke Force Team 2767 Development Blog",
+		  "image": "https://strykeforce.github.io/strykeforce.jpg",
+		  "thumbnailUrl": "https://strykeforce.github.io/strykeforce.jpg",
+		  "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+		  "name": "Stryke Force 2767"
+		}
+		</script>
 	</head>
 	<body>
 		{{ partial "header.html" . }}
