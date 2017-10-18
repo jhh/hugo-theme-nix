@@ -29,10 +29,12 @@
           {{ with .Site.Copyright -}}
             "license": "{{ . }}",
           {{- end }}
+          {{ if .GitInfo }}
           "author": {
             "@type": "Person",
             "name": "{{ .GitInfo.AuthorName }}"
           },
+          {{- end }}
           "description": "{{ .Description }}",
           "image": "{{ .Site.BaseURL }}{{ .Site.Params.ProfilePicture }}",
           "publisher": {
