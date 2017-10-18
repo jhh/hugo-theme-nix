@@ -4,29 +4,7 @@
 		<title> {{ .Site.Title }} </title>
 
 		{{ partial "head.html" . }}
-		<script type="application/ld+json">
-		{
-		  "@context": "http://schema.org",
-		  "@type": "WebSite",
-		  "url": "{{ .Site.BaseURL }}",
-		  "author": {
-		    "@type": "Organization",
-		    "name": "{{ .Site.Params.Name }}",
-				"logo": "{{ .Site.BaseURL }}{{ .Site.Params.ProfilePicture }}",
-				"address": {
-			    "@type": "PostalAddress",
-			    "addressLocality": "Kalamazoo",
-			    "addressRegion": "MI",
-					"addressCountry": "USA"
-			  }
-		  },
-		  "description": "{{ .Site.Params.About }}",
-		  "image": "{{ .Site.BaseURL }}{{ .Site.Params.ProfilePicture }}",
-		  "thumbnailUrl": "{{ .Site.BaseURL }}{{ .Site.Params.ProfilePicture }}",
-		  "license": "https://creativecommons.org/licenses/by-sa/4.0/",
-		  "name": "{{ .Site.Params.Name }}"
-		}
-		</script>
+		{{ partial "schema.html" . }}
 	</head>
 	<body>
 		{{ partial "header.html" . }}
