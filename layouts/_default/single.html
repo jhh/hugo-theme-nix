@@ -38,13 +38,10 @@
           "publisher": {
     		    "@type": "Organization",
     		    "name": "{{ .Site.Params.Name }}",
-    				"logo": "{{ .Site.BaseURL }}{{ .Site.Params.ProfilePicture }}",
-    				"address": {
-    			    "@type": "PostalAddress",
-    			    "addressLocality": "Kalamazoo",
-    			    "addressRegion": "MI",
-    					"addressCountry": "USA"
-    			  }
+    				"logo": {
+              "@type": "ImageObject",
+              "url": "{{ .Site.BaseURL }}{{ .Site.Params.ProfilePicture }}"
+            }
     		  }
         }
         </script>
