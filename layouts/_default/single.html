@@ -4,6 +4,51 @@
     <head>
         <title> {{ .Title }} &middot; {{ .Site.Title }} </title>
 
+        <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "BlogPosting",
+          "headline": "{{ .Title }}",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ .Permalink }}"
+          },
+          {{ with .Params.tags -}}
+            "keywords": "{{ delimit . ", " }}",
+          {{- end }}
+          "wordcount": {{ .WordCount }},
+          "url": "{{ .Permalink }}",
+          {{ if not .PublishDate.IsZero -}}
+            "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" | safeHTML }}",
+          {{- else if not .Date.IsZero -}}
+            "datePublished": "{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}",
+          {{- end }}
+          {{ with .Lastmod -}}
+            "dateModified": "{{ .Format "2006-01-02T15:04:05-07:00" | safeHTML }}",
+          {{- end }}
+          {{ with .Site.Copyright -}}
+            "license": "{{ . }}",
+          {{- end }}
+          "author": {
+            "@type": "Person",
+            "name": "{{ .GitInfo.AuthorName }}"
+          },
+          "description": "{{ .Description }}",
+          "image": "{{ .Site.BaseURL }}{{ .Site.Params.ProfilePicture }}",
+          "publisher": {
+    		    "@type": "Organization",
+    		    "name": "{{ .Site.Params.Name }}",
+    				"logo": "{{ .Site.BaseURL }}{{ .Site.Params.ProfilePicture }}",
+    				"address": {
+    			    "@type": "PostalAddress",
+    			    "addressLocality": "Kalamazoo",
+    			    "addressRegion": "MI",
+    					"addressCountry": "USA"
+    			  }
+    		  }
+        }
+        </script>
+
         {{ partial "head.html" . }}
     </head>
 
