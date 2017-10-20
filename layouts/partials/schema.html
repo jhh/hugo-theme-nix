@@ -7,6 +7,13 @@
   "author": {
     "@type": "Organization",
     "name": "{{ .Site.Params.Name }}",
+    "url": "http://strykeforce.org/",
+    "sameAs": [
+      "https://twitter.com/{{ .Site.Params.TwitterID }}",
+      "https://facebook.com/{{ .Site.Params.FacebookID }}",
+      "https://github.com/{{ .Site.Params.GithubID }}",
+      "https://instagram.com/{{ .Site.Params.InstagramID }}"
+    ],
     "logo": "{{ .Site.BaseURL }}{{ .Site.Params.ProfilePicture }}",
     "address": {
       "@type": "PostalAddress",
